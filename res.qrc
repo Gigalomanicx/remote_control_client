@@ -1,0 +1,37 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>resources/icons/car1.jpg</file>
+        <file>resources/icons/car2.jpg</file>
+        <file>resources/icons/closeconnect.png</file>
+        <file>resources/icons/connect.png</file>
+        <file>resources/icons/D.png</file>
+        <file>resources/icons/doubledeng.png</file>
+        <file>resources/icons/Enopen.png</file>
+        <file>resources/icons/Enunopen.png</file>
+        <file>resources/icons/jiasu.png</file>
+        <file>resources/icons/jindeng.png</file>
+        <file>resources/icons/left.png</file>
+        <file>resources/icons/leftdeng.png</file>
+        <file>resources/icons/N.png</file>
+        <file>resources/icons/open.png</file>
+        <file>resources/icons/P.png</file>
+        <file>resources/icons/QAQ.png</file>
+        <file>resources/icons/R.png</file>
+        <file>resources/icons/raindeng.png</file>
+        <file>resources/icons/right.png</file>
+        <file>resources/icons/rightdeng.png</file>
+        <file>resources/icons/shache.png</file>
+        <file>resources/icons/unD.png</file>
+        <file>resources/icons/undoubledeng.png</file>
+        <file>resources/icons/unleftdeng.png</file>
+        <file>resources/icons/unN.png</file>
+        <file>resources/icons/unopen.png</file>
+        <file>resources/icons/unP.png</file>
+        <file>resources/icons/unR.png</file>
+        <file>resources/icons/unrightdeng.png</file>
+        <file>resources/icons/unvoise.png</file>
+        <file>resources/icons/voise.png</file>
+        <file>resources/icons/yuandeng.png</file>
+        <file>resources/icons/car.jpeg</file>
+    </qresource>
+</RCC>
