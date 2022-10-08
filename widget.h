@@ -288,6 +288,7 @@ private slots:
 //    void on_pushButtonN_clicked();
 //    void on_pushButtonR_clicked();
 //    void on_pushButtonPark_clicked();
+      void on_verticalSlider_sliderReleased();  //挡位监听
 //    void on_horizontalSlider_valueChanged(int value);
 //    void on_pushButtonTZ_clicked();
 //    void on_pushButtonLF_clicked();
@@ -297,10 +298,10 @@ private slots:
 //    void on_pushButtonSound_pressed();
 //    void on_pushButtonSound_released();
 //    void on_pushButtonWP_clicked();
-//    void on_pushButtonLL_clicked();
-//    void on_pushButtonLR_clicked();
-//    void on_pushButtonLEL_clicked();
-//    void on_pushButtonLNear_clicked();
-//    void on_pushButtonLRemote_clicked();
+    void on_pushButtonLL_clicked();             //左转向灯监听
+    void on_pushButtonLR_clicked();             //右转向灯监听
+    void on_pushButtonDF_clicked();             //双闪灯监听
+    void on_pushButtonNear_clicked();          //近灯等监听
+    void on_pushButtonRemote_clicked();        //远光灯监听
 };
 #endif // WIDGET_H

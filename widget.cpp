@@ -45,39 +45,6 @@ Widget::Widget(QWidget *parent)
     m_wiper = 0;
 
 
-    QStandardItem* parameter_TTS =new QStandardItem();      //目标转角
-    QStandardItem* parameter_RTS =new QStandardItem();      //实际转角
-
-    QStandardItem* parameter_TBS =new QStandardItem();      //目标制动
-    QStandardItem* parameter_RBS =new QStandardItem();      //实时制动
-
-    QStandardItem* parameter_TGS =new QStandardItem();      //目标油门
-    QStandardItem* parameter_RYS =new QStandardItem();      //实时油门
-
-    QStandardItem* parameter_SPS =new QStandardItem();      //实时速度
-    QStandardItem* parameter_BTS =new QStandardItem();      //车辆电量
-    QStandardItem* parameter_RGS =new QStandardItem();      //当前挡位
-
-    parameter_TTS->setText("目标转角:  deg");
-    parameter_RTS->setText("实际转角:  deg");
-
-    parameter_TBS->setText("目标制动:  bar");
-    parameter_RBS->setText("实时制动:  bar");
-
-    parameter_TGS->setText("目标油门:  %");
-    parameter_RYS->setText("实时油门:  %");
-
-    parameter_TGS->setText("目标转角:  deg");
-    parameter_RYS->setText("目标转角:  deg");
-    parameter_TGS->setText("目标转角:  deg");
-
-
-
-
-
-
-
-
 
     /**定时器线程相关**/
     Timer1 = new QTimer(this);
@@ -87,23 +54,54 @@ Widget::Widget(QWidget *parent)
     CANTH = new CANThread(this);
     CANTH->CAN_Para_Init();
 //    connect(CANTH,&CANThread::DataReceiveDone,this, &Widget::dealReceiveData);
+
+
+    QStandardItemModel *model = new QStandardItemModel(ui->treeView);//创建模型指定父类
+    ui->treeView->setModel(model);
     logger(1,"欢迎使用RemoteControl客户端");
     logger(1,"首先请开启电源以及CAN");
     logger(1,"然后获取车辆控制权");
 
-    QStandardItemModel *model = new QStandardItemModel(ui->treeView);//创建模型指定父类
-    ui->treeView->setModel(model);
-    model->setHorizontalHeaderItem(0,new QStandardItem("车辆1"));
-    model->setItem(0,0,new QStandardItem("转向"));
-    model->item(0,0)->setCheckable(true);
-    model->item(0,0)->setChild(0,0,parameter_TTS);
-    model->item(0,0)->setChild(1,0,new QStandardItem("实时转角"));
-    model->setItem(1,0,new QStandardItem("档位"));
-    model->item(1,0)->setChild(0,0,new QStandardItem("二级1"));
-    model->setItem(2,0,new QStandardItem("油门"));
-    model->setItem(3,0,new QStandardItem("驻车"));
-    model->setItem(4,0,new QStandardItem("制动"));
-    model->setItem(5,0,new QStandardItem("灯光"));
+
+    model->setHorizontalHeaderLabels(QStringList()<<QStringLiteral("车辆参数")<<QStringLiteral("车辆信息"));
+
+    model->setItem(0,0,new QStandardItem("重要参数"));
+
+    model->item(0,0)->setChild(0,0,new QStandardItem("实时速度"));
+    model->item(0,0)->setChild(1,0,new QStandardItem("车辆电量"));
+
+    model->setItem(1,0,new QStandardItem("转向"));
+    model->item(1,0)->setCheckable(true);
+    model->item(1,0)->setChild(0,0,new QStandardItem("目标转角"));
+    model->item(1,0)->setChild(1,0,new QStandardItem("实时转角"));
+
+    model->setItem(2,0,new QStandardItem("档位"));
+    model->item(2,0)->setCheckable(true);
+    model->item(1,0)->setChild(0,0,new QStandardItem("目标挡位"));
+
+    model->setItem(3,0,new QStandardItem("油门"));
+    model->item(3,0)->setCheckable(true);
+    model->item(3,0)->setChild(0,0,new QStandardItem("目标油门"));
+    model->item(3,0)->setChild(1,0,new QStandardItem("实时油门"));
+
+    model->setItem(4,0,new QStandardItem("驻车"));
+    model->item(4,0)->setCheckable(true);
+
+    model->setItem(5,0,new QStandardItem("制动"));
+    model->item(5,0)->setCheckable(true);
+    model->item(5,0)->setChild(0,0,new QStandardItem("目标制动"));
+    model->item(5,0)->setChild(1,0,new QStandardItem("实时制动"));
+
+    model->setItem(6,0,new QStandardItem("灯光"));
+    model->item(6,0)->setCheckable(true);
+    model->item(6,0)->setChild(0,0,new QStandardItem("前大灯"));
+    model->item(6,0)->setChild(1,0,new QStandardItem("左转向灯"));
+    model->item(6,0)->setChild(2,0,new QStandardItem("右转向灯"));
+    model->item(6,0)->setChild(3,0,new QStandardItem("双闪灯"));
+    model->item(6,0)->setChild(4,0,new QStandardItem("远灯"));
+    model->item(6,0)->setChild(5,0,new QStandardItem("近灯"));
+    model->item(6,0)->setChild(6,0,new QStandardItem("雨刷器"));
+
 
 //    ui->textBrowserMessage->append((QString)"<font color=\"#FF0000\">[SYSTEM]" + current_date + ":欢迎使用RemoteControl客户端\n"+ "</font>");
 //    ui->textBrowserMessage->append((QString)"<font color=\"#FF0000\">[SYSTEM]" + current_date + ":首先请开启电源以及CAN\n"+ "</font>");
@@ -116,27 +114,28 @@ Widget::~Widget()
     delete ui;
 }
 
+
 void Widget::logger(uint level,QString message){
     switch (level)
     {
         case 0://DEBUG Level
-            ui->textBrowserMessage->append((QString)"<font color=\"#40E0D0\">[DEBUG]" + QDateTime::currentDateTime().toString("hh:mm:ss.zzz") + message + "\n</font>");
+            ui->textBrowserMessage->append((QString)"<font color=\"#40E0D0\">[DEBUG]" + QDateTime::currentDateTime().toString("hh:mm:ss.zzz:") + message + "\n</font>");
             break;
         case 1://INFO level
-            ui->textBrowserMessage->append((QString)"<font color=\"#000000\">[INFO]" + QDateTime::currentDateTime().toString("hh:mm:ss.zzz") + message + "\n</font>");
+            ui->textBrowserMessage->append((QString)"<font color=\"#000000\">[INFO]" + QDateTime::currentDateTime().toString("hh:mm:ss.zzz:") + message + "\n</font>");
             break;
         case 2://WARN level
-            ui->textBrowserMessage->append((QString)"<font color=\"#FF8C00\">[WARN]" + QDateTime::currentDateTime().toString("hh:mm:ss.zzz") + message + "\n</font>");
+            ui->textBrowserMessage->append((QString)"<font color=\"#FF8C00\">[WARN]" + QDateTime::currentDateTime().toString("hh:mm:ss.zzz:") + message + "\n</font>");
             break;
         case 3://ERROR level
-            ui->textBrowserMessage->append((QString)"<font color=\"#FF0000\">[ERROR]" + QDateTime::currentDateTime().toString("hh:mm:ss.zzz") + message + "\n</font>");
+            ui->textBrowserMessage->append((QString)"<font color=\"#FF0000\">[ERROR]" + QDateTime::currentDateTime().toString("hh:mm:ss.zzz:") + message + "\n</font>");
             break;
         case 4://FATAL level
-            ui->textBrowserMessage->append((QString)"<font color=\"#FF0000\">[FATAL]" + QDateTime::currentDateTime().toString("hh:mm:ss.zzz") + message + "\n</font>");
+            ui->textBrowserMessage->append((QString)"<font color=\"#FF0000\">[FATAL]" + QDateTime::currentDateTime().toString("hh:mm:ss.zzz:") + message + "\n</font>");
             break;
 
         default://UNKNOWN
-            ui->textBrowserMessage->append((QString)"<font color=\"#000000\">[UNKNOWN]" + QDateTime::currentDateTime().toString("hh:mm:ss.zzz") + message + "\n</font>");
+            ui->textBrowserMessage->append((QString)"<font color=\"#000000\">[UNKNOWN]" + QDateTime::currentDateTime().toString("hh:mm:ss.zzz:") + message + "\n</font>");
             break;
     }
 
@@ -305,7 +304,7 @@ void Widget::on_CANConnect_clicked()
     /**打开CAN设备**/
     if(VCI_OpenDevice(static_cast<DWORD>(CANTH->m_devtype),static_cast<DWORD>(index),0)!=STATUS_OK)
     {
-        ui->textBrowserMessage->append((QString)"<font color=\"#FF0000\">[ERROR]" + QDateTime::currentDateTime().toString("hh:mm:ss.zzz") + ":打开设备失败!\n"+ "</font>");
+        logger(3,"打开设备失败!");
         QMessageBox::warning(this,"警告",QStringLiteral("打开设备失败!"));
 
         return;
@@ -313,7 +312,7 @@ void Widget::on_CANConnect_clicked()
     /**设置CAN波特率**/
     if (VCI_SetReference(static_cast<DWORD>(CANTH->m_devtype),static_cast<DWORD>(index), static_cast<DWORD>(cannum), 0, &baud) != STATUS_OK)
     {
-        ui->textBrowserMessage->append((QString)"<font color=\"#FF0000\">[ERROR]" + QDateTime::currentDateTime().toString("hh:mm:ss.zzz") + ":设置波特率错误，打开设备失败!\n"+ "</font>");
+        logger(3,"设置波特率错误，打开设备失败!");
         QMessageBox::warning(this,"警告",QStringLiteral("设置波特率错误，打开设备失败!"));
         VCI_CloseDevice(static_cast<DWORD>(CANTH->m_devtype),static_cast<DWORD>(index));
         return;
@@ -321,7 +320,7 @@ void Widget::on_CANConnect_clicked()
     /**初始化CAN设备**/
     if(VCI_InitCAN(static_cast<DWORD>(CANTH->m_devtype),static_cast<DWORD>(index), static_cast<DWORD>(cannum), &init_config)!=STATUS_OK)
     {
-        ui->textBrowserMessage->append((QString)"<font color=\"#FF0000\">[ERROR]" + QDateTime::currentDateTime().toString("hh:mm:ss.zzz") + ":初始化CAN失败!\n"+ "</font>");
+        logger(3,"初始化CAN失败!");
         QMessageBox::warning(this,"警告",QStringLiteral("初始化CAN失败!"));
 
         VCI_CloseDevice(static_cast<DWORD>(CANTH->m_devtype),static_cast<DWORD>(index));
@@ -331,13 +330,14 @@ void Widget::on_CANConnect_clicked()
 
     /**连接成功标志**/
     m_connect = 1;
-    ui->textBrowserMessage->insertPlainText("CAN设备连接成功！\n");
-    ui->CANConnect->setIcon(QIcon(":/connect.png"));
-    ui->CANConnect->setIconSize(QSize(60,60));
-//    ui->CANDevice->setDisabled(true);
-//    ui->CANIndex->setDisabled(true);
-//    ui->CANPort->setDisabled(true);
-//    ui->CANBaud->setDisabled(true);
+    logger(1,"CAN设备连接成功！");
+    //CAN设备连接成功之后该怎么做
+    //CAN设备配置调试禁用啦
+    ui->CANState->setChecked(true);
+    ui->CANDevice->setDisabled(true);
+    ui->CANIndex->setDisabled(true);
+    ui->CANPort->setDisabled(true);
+    ui->CANBaud->setDisabled(true);
     /**接收线程启动**/
     CANTH->setFlag(false);
     CANTH->start();
@@ -348,20 +348,20 @@ void Widget::on_CANStart_clicked()
 {
 
     if(m_connect == 0)
+        QMessageBox::warning(this,"警告","CAN设备未连接，请先设置CAN连接参数\n连接CAN总线成功后在进行尝试");
         return;
     if(VCI_StartCAN(static_cast<DWORD>(CANTH->m_devtype),CANTH->m_devind,static_cast<DWORD>(CANTH->m_cannum)) == 1)
     {
-        ui->textBrowserMessage->insertPlainText("log:CAN设备启动成功！\n");
-        ui->CANStart->setIcon(QIcon(":/open.png"));
-        ui->CANStart->setIconSize(QSize(60,60));
+        logger(1,"CAN设备启动成功！");
+          ui->CANOpen->setChecked(true);
         /**定时发送启动**/
         if(Timer1->isActive() == false)
             Timer1->start(50);
     }
     else
     {
-        ui->textBrowserMessage->insertPlainText("CAN设备启动失败！\n");
-        QMessageBox::warning(this,"警告",QStringLiteral("启动失败"));
+        logger(3,"CAN设备启动失败！");
+        QMessageBox::warning(this,"警告","CAN设备启动失败");
     }
 }
 
@@ -429,6 +429,7 @@ void Widget::dealTimer1()
     Data08.TxData.targetGasValue = m_gas;
     //转向数据
 //    m_steer = ui->horizontalSlider->value()*10;
+//    model->item(0,0)->setChild(0,1,m_steer);
     if(m_steer<0) m_steer = ~(-m_steer)+1;
     Data08.TxData.target_steer_angle_value_H = m_steer>>8&0xff;
     Data08.TxData.target_steer_angle_value_L = m_steer&0xff;
@@ -671,6 +672,7 @@ void Widget::dealTimer1()
 //                ui->labelRBS->setText(QString("%1").arg(Data16D1.RxData.realBrakeState));
 //            }
 //        }
+//          //电池电量
 //        if(CAN_ID == 0x18F020D1)
 //        {
 //            if(objs[i].RemoteFlag==0)
@@ -681,6 +683,7 @@ void Widget::dealTimer1()
 //                {
 //                    Data20D1.UCData[j] = objs[i].Data[j];
 //                }
+//
 //                ui->labelBTS->setText(QString("%1").arg(Data20D1.RxData.batteryValue)+" %");
 //            }
 //        }
@@ -877,6 +880,7 @@ void Widget::dealTimer1()
 //        ui->pushButtonD->setIconSize(QSize(60,60));
 //    }
 //}
+
 ////转向控制相关
 //void Widget::on_horizontalSlider_valueChanged(int value)
 //{
@@ -956,61 +960,110 @@ void Widget::dealTimer1()
 //        m_wiper = 0;
 //    }
 //}
-////灯光控制
-//void Widget::on_pushButtonLL_clicked()
-//{
-//    if( m_turnlightleft == 0)
-//    {
-//        ui->pushButtonLL->setIcon(QIcon(":/leftdeng.png"));
-//        m_turnlightleft = 1;
-//    }else{
-//        ui->pushButtonLL->setIcon(QIcon(":/unleftdeng.png"));
-//        m_turnlightleft = 0;
-//    }
-//}
-//void Widget::on_pushButtonLR_clicked()
-//{
-//    if( m_turnlightright == 0)
-//    {
-//        ui->pushButtonLR->setIcon(QIcon(":/rightdeng.png"));
-//        m_turnlightright = 1;
-//    }else{
-//        ui->pushButtonLR->setIcon(QIcon(":/unrightdeng.png"));
-//        m_turnlightright = 0;
-//    }
-//}
-//void Widget::on_pushButtonLEL_clicked()
-//{
-//    if( m_flashlight == 0)
-//    {
-//        m_flashlight = 1;
-//        ui->pushButtonLEL->setIcon(QIcon(":/doubledeng.png"));
-//        //ui->pushButtonLL->setIcon(QIcon(":/new/images/images/doubleflash_onL.png"));
-//        //ui->pushButtonLR->setIcon(QIcon(":/new/images/images/doubleflash_onR.png"));
-//    }else{
-//        m_flashlight = 0;
-//        m_turnlightright = 0;
-//        m_turnlightleft = 0;
-//        ui->pushButtonLEL->setIcon(QIcon(":/undoubledeng.png"));
-//        //ui->pushButtonLL->setIcon(QIcon(":/new/images/images/leftlight.png"));
-//        //ui->pushButtonLR->setIcon(QIcon(":/new/images/images/rightlight.png"));
-//    }
-//}
-//void Widget::on_pushButtonLNear_clicked()
-//{
-//    if( m_nearheadlight == 0)
-//    {
-//        m_nearheadlight = 1;
-//    }else{
-//        m_nearheadlight = 0;
-//    }
-//}
-//void Widget::on_pushButtonLRemote_clicked()
-//{
-//    if( m_farheadlight == 0)
-//    {
-//        m_farheadlight = 1;
-//    }else{
-//        m_farheadlight = 0;
-//    }
-//}
+//灯光控制
+//左转向灯监听
+void Widget::on_pushButtonLL_clicked()
+{
+    if( m_turnlightleft == 0)
+    {
+        logger(1,"左转灯打开");
+        ui->label_left->setStyleSheet("border-image: url(:/icons/resources/icons/left_on.png);");
+        m_turnlightleft = 1;
+    }else{
+        logger(1,"左转灯关闭");
+        ui->label_left->setStyleSheet("border-image: url(:/icons/resources/icons/left_off.png);");
+        m_turnlightleft = 0;
+    }
+}
+//右转向灯监听
+void Widget::on_pushButtonLR_clicked()
+{
+    if( m_turnlightright == 0)
+    {
+        logger(1,"右转灯打开");
+        ui->label_right->setStyleSheet("border-image: url(:/icons/resources/icons/right_on.png);");
+        m_turnlightright = 1;
+    }else{
+        logger(1,"右转灯关闭");
+        ui->label_right->setStyleSheet("border-image: url(:/icons/resources/icons/right_off.png);");
+        m_turnlightright = 0;
+    }
+}
+
+void Widget::on_pushButtonDF_clicked()
+{
+    if( m_flashlight == 0)
+    {
+        logger(1,"双闪灯打开");
+        ui->labelDanger->setStyleSheet("border-image: url(:/icons/resources/icons/doubleflash_on.png);");
+        m_flashlight = 1;
+    }else{
+        logger(1,"双闪灯关闭");
+        ui->labelDanger->setStyleSheet("border-image: url(:/icons/resources/icons/doubleflash_off.png);");
+        m_flashlight = 0;
+        m_turnlightright = 0;
+        m_turnlightleft = 0;
+
+
+    }
+}
+void Widget::on_pushButtonNear_clicked()
+{
+    if( m_nearheadlight == 0)
+    {
+        logger(1,"近光灯打开");
+        ui->labelJindeng->setStyleSheet("border-image: url(:/icons/resources/icons/jindeng_on.png);");
+        m_nearheadlight = 1;
+    }else{
+        logger(1,"近光灯关闭");
+        ui->labelJindeng->setStyleSheet("border-image: url(:/icons/resources/icons/jindeng_off.png);");
+        m_nearheadlight = 0;
+    }
+}
+void Widget::on_pushButtonRemote_clicked()
+{
+    if( m_farheadlight == 0)
+    {
+        logger(1,"远光灯打开");
+        ui->labelYuandeng->setStyleSheet("border-image: url(:/icons/resources/icons/yuandeng_on.png);");
+        m_farheadlight = 1;
+    }else{
+        logger(1,"远光灯关闭");
+        ui->labelYuandeng->setStyleSheet("border-image: url(:/icons/resources/icons/yuandeng_off.png);");
+        m_farheadlight = 0;
+    }
+}
+
+
+void Widget::on_verticalSlider_sliderReleased()
+{
+    int value = ui->verticalSlider->sliderPosition();
+    switch (value) {
+        case 1:     //P档位
+            logger(1,"切换为P档位");
+            ui->labelGear->setText("车辆挡位：P");
+            break;
+
+        case 2:     //R档位
+            logger(1,"切换为R档位");
+            ui->labelGear->setText("车辆挡位：R");
+            break;
+
+        case 3:     //N档位
+            logger(1,"切换为N档位");
+            ui->labelGear->setText("车辆挡位：N");
+            break;
+
+        case 4:     //D档位
+            logger(1,"切换为D档位");
+            ui->labelGear->setText("车辆挡位：D");
+            break;
+
+        default:
+            logger(2,"切换为未知档位");
+            ui->labelGear->setText("车辆挡位：UN");
+            break;
+
+    }
+}
+
