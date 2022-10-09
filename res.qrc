@@ -2,7 +2,6 @@
     <qresource prefix="/icons">
         <file>resources/icons/jiasu.png</file>
         <file>resources/icons/jindeng_off.png</file>
-        <file>resources/icons/wiper_pff.png</file>
         <file>resources/icons/shache.png</file>
         <file>resources/icons/undoubledeng.png</file>
         <file>resources/icons/voise_on.png</file>
@@ -19,5 +18,7 @@
         <file>resources/icons/yuandeng_off.png</file>
         <file>resources/icons/yuandeng_on.png</file>
         <file>resources/icons/jindeng_on.png</file>
+        <file>resources/icons/wiper_off.png</file>
+        <file>resources/icons/wiper_on.png</file>
     </qresource>
 </RCC>

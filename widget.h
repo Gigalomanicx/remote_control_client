@@ -272,36 +272,35 @@ private:
 private slots:
     /**线程定时器相关**/
     void dealTimer1();                                      //定时器槽函数
-//    void dealReceiveData(PVCI_CAN_OBJ objs,uint length);    //数据接收处理函数
+    void dealReceiveData(PVCI_CAN_OBJ objs,uint length);    //数据接收处理函数
     void logger(uint level,QString message);
-    void on_CANConnect_clicked();
-    void on_CANStart_clicked();
-//    void on_pushButtonCarLicense_clicked();
-    void on_textBrowserMessage_textChanged();
-//    void on_pushButtonTEN_clicked();
-//    void on_pushButtonBEN_clicked();
-//    void on_pushButtonGEN_clicked();
-//    void on_pushButtonYEN_clicked();
-//    void on_pushButtonPEN_clicked();
-//    void on_pushButtonLEN_clicked();
-//    void on_pushButtonD_clicked();
-//    void on_pushButtonN_clicked();
-//    void on_pushButtonR_clicked();
-//    void on_pushButtonPark_clicked();
-      void on_verticalSlider_sliderReleased();  //挡位监听
-//    void on_horizontalSlider_valueChanged(int value);
-//    void on_pushButtonTZ_clicked();
-//    void on_pushButtonLF_clicked();
-//    void on_pushButtonRI_clicked();
-//    void on_pushButtonG_clicked();
-//    void on_pushButtonB_clicked();
-//    void on_pushButtonSound_pressed();
-//    void on_pushButtonSound_released();
-//    void on_pushButtonWP_clicked();
+    void init();                                //界面初始化
+    void on_CANConnect_clicked();               //1.CAN连接
+    void on_CANStart_clicked();                 //2.CAN启动
+    void on_pushButtonCarLicense_clicked();     //3.车辆授权
+    void on_textBrowserMessage_textChanged();   //log
+    void on_checkBoxTEN_stateChanged(int arg1); //转向使能
+    void on_checkBoxBEN_stateChanged(int arg1); //制动使能
+    void on_checkBoxGEN_stateChanged(int arg1); //档位使能
+    void on_checkBoxYEN_stateChanged(int arg1); //油门使能
+    void on_checkBoxPEN_stateChanged(int arg1); //驻车使能
+    void on_checkBoxLEN_stateChanged(int arg1); //灯光使能
+    void on_verticalSlider_sliderReleased();  //挡位选择监听
+    void on_horizontalSlider_valueChanged(int value);   //方向盘滑竿监听
+    void on_pushButtonTZ_clicked();                     //方向盘回正监听
+    void on_pushButtonLF_clicked();             //方向盘左转监听
+    void on_pushButtonRI_clicked();             //方向盘右转监听
+    void on_pushButtonBEN_clicked();            //制动监听
+    void on_pushButtonYEN_clicked();            //油门监听
+    void on_pushButtonSound_pressed();          //喇叭按下监听
+    void on_pushButtonSound_released();         //喇叭抬起监听
+    void on_pushButtonWP_clicked();             //雨刷控制
     void on_pushButtonLL_clicked();             //左转向灯监听
     void on_pushButtonLR_clicked();             //右转向灯监听
     void on_pushButtonDF_clicked();             //双闪灯监听
-    void on_pushButtonNear_clicked();          //近灯等监听
-    void on_pushButtonRemote_clicked();        //远光灯监听
+    void on_pushButtonNear_clicked();           //近灯等监听
+    void on_pushButtonRemote_clicked();         //远光灯监听
+    void on_checkBoxDEBUG_stateChanged(int arg1);
+    void on_pushButtonBack_clicked();
 };
 #endif // WIDGET_H
