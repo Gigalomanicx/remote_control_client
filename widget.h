@@ -288,8 +288,8 @@ private slots:
     void on_verticalSlider_sliderReleased();  //挡位选择监听
     void on_horizontalSlider_valueChanged(int value);   //方向盘滑竿监听
     void on_pushButtonTZ_clicked();                     //方向盘回正监听
-    void on_pushButtonLF_clicked();             //方向盘左转监听
-    void on_pushButtonRI_clicked();             //方向盘右转监听
+    void on_pushButtonLF_pressed();             //方向盘左转监听
+    void on_pushButtonRI_pressed();             //方向盘右转监听
     void on_pushButtonBEN_clicked();            //制动监听
     void on_pushButtonYEN_clicked();            //油门监听
     void on_pushButtonSound_pressed();          //喇叭按下监听

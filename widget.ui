@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>818</width>
+    <width>800</width>
     <height>1000</height>
    </rect>
   </property>
@@ -53,7 +53,7 @@
     <rect>
      <x>20</x>
      <y>930</y>
-     <width>781</width>
+     <width>761</width>
      <height>61</height>
     </rect>
    </property>
@@ -73,7 +73,7 @@
      <rect>
       <x>20</x>
       <y>20</y>
-      <width>741</width>
+      <width>721</width>
       <height>31</height>
      </rect>
     </property>
@@ -698,7 +698,7 @@ QRadioButton::indicator:unchecked {
     <rect>
      <x>230</x>
      <y>430</y>
-     <width>571</width>
+     <width>551</width>
      <height>231</height>
     </rect>
    </property>
@@ -710,7 +710,7 @@ QRadioButton::indicator:unchecked {
      <rect>
       <x>10</x>
       <y>71</y>
-      <width>551</width>
+      <width>531</width>
       <height>151</height>
      </rect>
     </property>
@@ -723,7 +723,7 @@ QRadioButton::indicator:unchecked {
      <rect>
       <x>10</x>
       <y>20</y>
-      <width>551</width>
+      <width>531</width>
       <height>50</height>
      </rect>
     </property>
@@ -802,7 +802,7 @@ QRadioButton::indicator:unchecked {
     <rect>
      <x>230</x>
      <y>370</y>
-     <width>571</width>
+     <width>551</width>
      <height>51</height>
     </rect>
    </property>
@@ -1012,7 +1012,7 @@ QRadioButton::indicator:unchecked {
   <widget class="QGroupBox" name="groupBox_7">
    <property name="geometry">
     <rect>
-     <x>680</x>
+     <x>660</x>
      <y>670</y>
      <width>120</width>
      <height>251</height>
@@ -1137,7 +1137,7 @@ QRadioButton::indicator:unchecked {
     <rect>
      <x>20</x>
      <y>670</y>
-     <width>641</width>
+     <width>621</width>
      <height>251</height>
     </rect>
    </property>
@@ -1147,7 +1147,7 @@ QRadioButton::indicator:unchecked {
    <widget class="QPushButton" name="pushButtonBEN">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>30</x>
       <y>200</y>
       <width>130</width>
       <height>40</height>
@@ -1175,7 +1175,7 @@ QRadioButton::indicator:unchecked {
    <widget class="QPushButton" name="pushButtonYEN">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>460</x>
       <y>200</y>
       <width>130</width>
       <height>40</height>
@@ -1208,7 +1208,7 @@ QRadioButton::indicator:unchecked {
      <rect>
       <x>10</x>
       <y>20</y>
-      <width>621</width>
+      <width>591</width>
       <height>91</height>
      </rect>
     </property>
@@ -1224,7 +1224,7 @@ QRadioButton::indicator:unchecked {
     <widget class="QLabel" name="labelRBS">
      <property name="geometry">
       <rect>
-       <x>380</x>
+       <x>350</x>
        <y>50</y>
        <width>121</width>
        <height>41</height>
@@ -1250,7 +1250,7 @@ QRadioButton::indicator:unchecked {
     <widget class="QLabel" name="labelRYS">
      <property name="geometry">
       <rect>
-       <x>500</x>
+       <x>470</x>
        <y>50</y>
        <width>121</width>
        <height>41</height>
@@ -1276,7 +1276,7 @@ QRadioButton::indicator:unchecked {
     <widget class="QLabel" name="labelRTS">
      <property name="geometry">
       <rect>
-       <x>380</x>
+       <x>350</x>
        <y>10</y>
        <width>121</width>
        <height>41</height>
@@ -1302,7 +1302,7 @@ QRadioButton::indicator:unchecked {
     <widget class="QLabel" name="labelSPS">
      <property name="geometry">
       <rect>
-       <x>260</x>
+       <x>230</x>
        <y>10</y>
        <width>121</width>
        <height>41</height>
@@ -1310,7 +1310,7 @@ QRadioButton::indicator:unchecked {
      </property>
      <property name="font">
       <font>
-       <pointsize>8</pointsize>
+       <pointsize>9</pointsize>
        <weight>50</weight>
        <bold>false</bold>
       </font>
@@ -1328,7 +1328,7 @@ QRadioButton::indicator:unchecked {
     <widget class="QLabel" name="labelBTS">
      <property name="geometry">
       <rect>
-       <x>260</x>
+       <x>230</x>
        <y>50</y>
        <width>121</width>
        <height>41</height>
@@ -1354,7 +1354,7 @@ QRadioButton::indicator:unchecked {
     <widget class="QLabel" name="labelGear">
      <property name="geometry">
       <rect>
-       <x>500</x>
+       <x>470</x>
        <y>10</y>
        <width>121</width>
        <height>41</height>
@@ -1380,10 +1380,10 @@ QRadioButton::indicator:unchecked {
     <widget class="QLabel" name="labelUnvoise">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>60</y>
-       <width>20</width>
-       <height>20</height>
+       <x>20</x>
+       <y>50</y>
+       <width>30</width>
+       <height>30</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -1399,10 +1399,10 @@ QRadioButton::indicator:unchecked {
     <widget class="QLabel" name="labelYuandeng">
      <property name="geometry">
       <rect>
-       <x>70</x>
-       <y>20</y>
-       <width>20</width>
-       <height>20</height>
+       <x>60</x>
+       <y>50</y>
+       <width>30</width>
+       <height>30</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -1415,10 +1415,10 @@ QRadioButton::indicator:unchecked {
     <widget class="QLabel" name="labelJindeng">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>60</x>
        <y>20</y>
-       <width>20</width>
-       <height>20</height>
+       <width>30</width>
+       <height>30</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -1431,10 +1431,10 @@ QRadioButton::indicator:unchecked {
     <widget class="QLabel" name="labelDanger">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>20</x>
        <y>20</y>
-       <width>20</width>
-       <height>20</height>
+       <width>30</width>
+       <height>30</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -1447,10 +1447,10 @@ QRadioButton::indicator:unchecked {
     <widget class="QLabel" name="labelBattery">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>60</y>
-       <width>20</width>
-       <height>20</height>
+       <x>100</x>
+       <y>50</y>
+       <width>30</width>
+       <height>30</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -1463,10 +1463,10 @@ QRadioButton::indicator:unchecked {
     <widget class="QLabel" name="labeRraindeng">
      <property name="geometry">
       <rect>
-       <x>70</x>
-       <y>60</y>
-       <width>20</width>
-       <height>20</height>
+       <x>140</x>
+       <y>50</y>
+       <width>30</width>
+       <height>30</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -1476,38 +1476,59 @@ QRadioButton::indicator:unchecked {
       <string/>
      </property>
     </widget>
-   </widget>
-   <widget class="QPushButton" name="pushButtonTZ">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>170</y>
-      <width>41</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Microsoft YaHei UI</family>
-      <pointsize>9</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 170, 127);</string>
-    </property>
-    <property name="text">
-     <string>回正</string>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
+    <widget class="QLabel" name="labelTurn">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>20</y>
+       <width>30</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/icons/resources/icons/turn_off.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelPark">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>50</y>
+       <width>30</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/icons/resources/icons/park_off.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelKey">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>20</y>
+       <width>30</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/icons/resources/icons/key_off.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </widget>
    <widget class="QPushButton" name="pushButtonSound">
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>270</x>
       <y>200</y>
       <width>81</width>
       <height>41</height>
@@ -1540,7 +1561,7 @@ QRadioButton::indicator:unchecked {
      <rect>
       <x>30</x>
       <y>120</y>
-      <width>361</width>
+      <width>561</width>
       <height>51</height>
      </rect>
     </property>
@@ -1598,7 +1619,7 @@ QRadioButton::indicator:unchecked {
    <widget class="QPushButton" name="pushButtonRI">
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>580</x>
       <y>130</y>
       <width>41</width>
       <height>31</height>
@@ -1689,7 +1710,7 @@ QRadioButton::indicator:unchecked {
    <widget class="QWidget" name="horizontalLayoutWidget_6">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>470</x>
       <y>170</y>
       <width>121</width>
       <height>31</height>
@@ -1718,13 +1739,44 @@ QRadioButton::indicator:unchecked {
      </item>
     </layout>
    </widget>
+   <widget class="QPushButton" name="pushButtonTZ">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>160</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string>回正</string>
+    </property>
+    <property name="shortcut">
+     <string>C</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoRepeat">
+     <bool>false</bool>
+    </property>
+    <property name="autoRepeatDelay">
+     <number>200</number>
+    </property>
+   </widget>
   </widget>
   <widget class="QWidget" name="horizontalLayoutWidget_4">
    <property name="geometry">
     <rect>
-     <x>15</x>
+     <x>20</x>
      <y>10</y>
-     <width>571</width>
+     <width>761</width>
      <height>41</height>
     </rect>
    </property>
@@ -1767,7 +1819,7 @@ QRadioButton::indicator:unchecked {
     <rect>
      <x>230</x>
      <y>60</y>
-     <width>571</width>
+     <width>551</width>
      <height>291</height>
     </rect>
    </property>
@@ -1779,7 +1831,7 @@ QRadioButton::indicator:unchecked {
      <rect>
       <x>10</x>
       <y>20</y>
-      <width>551</width>
+      <width>531</width>
       <height>256</height>
      </rect>
     </property>
