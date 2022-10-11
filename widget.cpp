@@ -1174,10 +1174,12 @@ void Widget::on_pushButtonDF_clicked()
     {
         logger(0,"双闪灯打开");
         ui->labelDanger->setStyleSheet("border-image: url(:/icons/resources/icons/doubleflash_on.png);");
+        model->item(6,0)->setChild(3,1,new QStandardItem("开"));
         m_flashlight = 1;
     }else{
         logger(0,"双闪灯关闭");
         ui->labelDanger->setStyleSheet("border-image: url(:/icons/resources/icons/doubleflash_off.png);");
+        model->item(6,0)->setChild(3,1,new QStandardItem("关"));
         m_flashlight = 0;
         m_turnlightright = 0;
         m_turnlightleft = 0;
@@ -1192,10 +1194,12 @@ void Widget::on_pushButtonNear_clicked()
     {
         logger(0,"近光灯打开");
         ui->labelJindeng->setStyleSheet("border-image: url(:/icons/resources/icons/jindeng_on.png);");
+        model->item(6,0)->setChild(4,1,new QStandardItem("开"));
         m_nearheadlight = 1;
     }else{
         logger(0,"近光灯关闭");
         ui->labelJindeng->setStyleSheet("border-image: url(:/icons/resources/icons/jindeng_off.png);");
+        model->item(6,0)->setChild(4,1,new QStandardItem("开"));
         m_nearheadlight = 0;
     }
 }
@@ -1206,10 +1210,12 @@ void Widget::on_pushButtonRemote_clicked()
     {
         logger(0,"远光灯打开");
         ui->labelYuandeng->setStyleSheet("border-image: url(:/icons/resources/icons/yuandeng_on.png);");
+        model->item(6,0)->setChild(4,1,new QStandardItem("开"));
         m_farheadlight = 1;
     }else{
         logger(0,"远光灯关闭");
         ui->labelYuandeng->setStyleSheet("border-image: url(:/icons/resources/icons/yuandeng_off.png);");
+        model->item(6,0)->setChild(4,1,new QStandardItem("关"));
         m_farheadlight = 0;
     }
 }
