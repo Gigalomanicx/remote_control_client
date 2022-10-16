@@ -697,9 +697,9 @@ QRadioButton::indicator:unchecked {
    <property name="geometry">
     <rect>
      <x>230</x>
-     <y>430</y>
+     <y>360</y>
      <width>551</width>
-     <height>231</height>
+     <height>301</height>
     </rect>
    </property>
    <property name="title">
@@ -711,7 +711,7 @@ QRadioButton::indicator:unchecked {
       <x>10</x>
       <y>71</y>
       <width>531</width>
-      <height>151</height>
+      <height>221</height>
      </rect>
     </property>
     <property name="editTriggers">
@@ -801,7 +801,7 @@ QRadioButton::indicator:unchecked {
    <property name="geometry">
     <rect>
      <x>230</x>
-     <y>370</y>
+     <y>300</y>
      <width>551</width>
      <height>51</height>
     </rect>
@@ -1820,7 +1820,7 @@ QRadioButton::indicator:unchecked {
      <x>230</x>
      <y>60</y>
      <width>551</width>
-     <height>291</height>
+     <height>221</height>
     </rect>
    </property>
    <property name="title">
@@ -1832,7 +1832,7 @@ QRadioButton::indicator:unchecked {
       <x>10</x>
       <y>20</y>
       <width>531</width>
-      <height>256</height>
+      <height>191</height>
      </rect>
     </property>
     <property name="font">

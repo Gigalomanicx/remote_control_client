@@ -80,148 +80,463 @@ void Widget::init(){
     ui->treeView->setModel(model);
 
     model->setHorizontalHeaderLabels(QStringList()<<QStringLiteral("C-CAN数据帧")<<QStringLiteral("帧参数")<<QStringLiteral("描述"));
-//    //1
-//    model->setItem(0,new QStandardItem("车辆授权"));
-//        model->item(0)->setChild(0,0,new QStandardItem("授权命令"));
-//        model->item(0)->setChild(0,1,new QStandardItem(""));
-//        model->item(0)->setChild(0,2,new QStandardItem("0x00-本地授权 0x01-取消本地授权 0x40-查询授权状态 0x41-获取车辆编号"));
+    //1 0x0C00D1D0
+    model->setItem(0,new QStandardItem("车辆授权"));
+    model->item(0)->setChild(0,0,new QStandardItem("授权命令"));
+    model->item(0)->setChild(0,1,new QStandardItem(""));
+    model->item(0)->setChild(0,2,new QStandardItem("0x00-本地授权 0x01-取消本地授权 0x40-查询授权状态 0x41-获取车辆编号"));
 
-//        model->item(0)->setChild(1,0,new QStandardItem("授权码"));
-//        model->item(0)->setChild(1,1,new QStandardItem(""));
-//        model->item(0)->setChild(1,2,new QStandardItem("6字节授权码"));
-//    //2
-//    model->setItem(1,new QStandardItem("车辆配置"));
-//        model->item(1)->setChild(0,0,new QStandardItem("配置项目"));
-//        model->item(1)->setChild(0,1,new QStandardItem(""));
-//        model->item(1)->setChild(0,2,new QStandardItem("0x01-转向总成配置 其他值无效"));
+    model->item(0)->setChild(1,0,new QStandardItem("授权码"));
+    model->item(0)->setChild(1,1,new QStandardItem(""));
+    model->item(0)->setChild(1,2,new QStandardItem("6字节授权码"));
+    //2 0x0C02D1D0
+    model->setItem(1,new QStandardItem("车辆配置"));
+    model->item(1)->setChild(0,0,new QStandardItem("配置项目"));
+    model->item(1)->setChild(0,1,new QStandardItem(""));
+    model->item(1)->setChild(0,2,new QStandardItem("0x01-转向总成配置 其他值无效"));
 
-//        model->item(1)->setChild(1,0,new QStandardItem("配置命令"));
-//        model->item(1)->setChild(1,1,new QStandardItem(""));
-//        model->item(1)->setChild(1,2,new QStandardItem("0x01-设置方向盘当前角度为零度角 其他值无效"));
-//    //3
-//    model->setItem(2,new QStandardItem("车辆运动控制"));
-//    model->item(2)->setChild(0,0,new QStandardItem("车辆控制模式"));
-//    model->item(2)->setChild(0,1,new QStandardItem(""));
-//    model->item(2)->setChild(0,2,new QStandardItem("0x0-手动模式 0x1-自动模式-部分 0x3-自动模式-完全"));
+    model->item(1)->setChild(1,0,new QStandardItem("配置命令"));
+    model->item(1)->setChild(1,1,new QStandardItem(""));
+    model->item(1)->setChild(1,2,new QStandardItem("0x01-设置方向盘当前角度为零度角 其他值无效"));
+    //3 0x0C08D1D0
+    model->setItem(2,new QStandardItem("车辆运动控制"));
+    model->item(2)->setChild(0,0,new QStandardItem("车辆控制模式"));
+    model->item(2)->setChild(0,1,new QStandardItem(""));
+    model->item(2)->setChild(0,2,new QStandardItem("0x0-手动模式 0x1-自动模式-部分 0x3-自动模式-完全"));
 
-//    model->item(2)->setChild(1,0,new QStandardItem("转向控制模式"));
-//    model->item(2)->setChild(1,1,new QStandardItem(""));
-//    model->item(2)->setChild(1,2,new QStandardItem("0x0-手动模式 0x1-自动模式"));
+    model->item(2)->setChild(1,0,new QStandardItem("转向控制模式"));
+    model->item(2)->setChild(1,1,new QStandardItem(""));
+    model->item(2)->setChild(1,2,new QStandardItem("0x0-手动模式 0x1-自动模式"));
 
-//    model->item(2)->setChild(2,0,new QStandardItem("制动控制模式"));
-//    model->item(2)->setChild(2,1,new QStandardItem(""));
-//    model->item(2)->setChild(2,2,new QStandardItem("0x0-手动模式 0x1-自动模式"));
+    model->item(2)->setChild(2,0,new QStandardItem("制动控制模式"));
+    model->item(2)->setChild(2,1,new QStandardItem(""));
+    model->item(2)->setChild(2,2,new QStandardItem("0x0-手动模式 0x1-自动模式"));
 
-//    model->item(2)->setChild(3,0,new QStandardItem("档位控制模式"));
-//    model->item(2)->setChild(3,1,new QStandardItem(""));
-//    model->item(2)->setChild(3,2,new QStandardItem("0x0-手动模式 0x1-自动模式"));
+    model->item(2)->setChild(3,0,new QStandardItem("档位控制模式"));
+    model->item(2)->setChild(3,1,new QStandardItem(""));
+    model->item(2)->setChild(3,2,new QStandardItem("0x0-手动模式 0x1-自动模式"));
 
-//    model->item(2)->setChild(4,0,new QStandardItem("油门控制模式"));
-//    model->item(2)->setChild(4,1,new QStandardItem(""));
-//    model->item(2)->setChild(4,2,new QStandardItem("0x0-手动模式 0x1-自动模式"));
+    model->item(2)->setChild(4,0,new QStandardItem("油门控制模式"));
+    model->item(2)->setChild(4,1,new QStandardItem(""));
+    model->item(2)->setChild(4,2,new QStandardItem("0x0-手动模式 0x1-自动模式"));
 
-//    model->item(2)->setChild(5,0,new QStandardItem("驻车控制模式"));
-//    model->item(2)->setChild(5,1,new QStandardItem(""));
-//    model->item(2)->setChild(5,2,new QStandardItem("0x0-手动模式 0x1-自动模式"));
-//    //4
-//    model->setItem(3,new QStandardItem("电源管理"));
+    model->item(2)->setChild(5,0,new QStandardItem("驻车控制模式"));
+    model->item(2)->setChild(5,1,new QStandardItem(""));
+    model->item(2)->setChild(5,2,new QStandardItem("0x0-手动模式 0x1-自动模式"));
 
-//    //5
-//    model->setItem(4,new QStandardItem("灯光管理"));
+    model->item(2)->setChild(6,0,new QStandardItem("灯光控制模式"));
+    model->item(2)->setChild(6,1,new QStandardItem(""));
+    model->item(2)->setChild(6,2,new QStandardItem("0x0-手动模式 0x1-自动模式"));
 
-//    //6
-//    model->setItem(5,new QStandardItem("车辆授权回复"));
+    model->item(2)->setChild(7,0,new QStandardItem("目标挡位"));
+    model->item(2)->setChild(7,1,new QStandardItem(""));
+    model->item(2)->setChild(7,2,new QStandardItem("0x0-空档 0x1-前进档 0x2-后退档"));
 
-//    //7
-//    model->setItem(6,new QStandardItem("车辆状态 1#"));
+    model->item(2)->setChild(8,0,new QStandardItem("目标驻车"));
+    model->item(2)->setChild(8,1,new QStandardItem(""));
+    model->item(2)->setChild(8,2,new QStandardItem("0x0-释放驻车 0x1-使能驻车"));
 
-//    //8
-//    model->setItem(7,new QStandardItem("车辆状态 2#"));
+    model->item(2)->setChild(9,0,new QStandardItem("目标油门"));
+    model->item(2)->setChild(9,1,new QStandardItem(" %"));
+    model->item(2)->setChild(9,2,new QStandardItem("数据范围：0-100"));
 
-//    //9
-//    model->setItem(8,new QStandardItem("车辆状态 3#"));
+    model->item(2)->setChild(10,0,new QStandardItem("目标方向盘转角"));
+    model->item(2)->setChild(10,1,new QStandardItem(" °"));
+    model->item(2)->setChild(10,2,new QStandardItem("数据范围：-7100 - +7100 角度分辨率：0.1° 左转为正"));
 
-//    //10
-//    model->setItem(9,new QStandardItem("车辆里程信息"));
+    model->item(2)->setChild(11,0,new QStandardItem("目标方向盘转速"));
+    model->item(2)->setChild(11,1,new QStandardItem(" °/s"));
+    model->item(2)->setChild(11,2,new QStandardItem("数据范围：0-250 转速范围[0°/s，500°/s]"));
 
-//    //11
-//    model->setItem(10,new QStandardItem("车辆灯光状态"));
+    model->item(2)->setChild(12,0,new QStandardItem("目标制动"));
+    model->item(2)->setChild(12,1,new QStandardItem(" MPa"));
+    model->item(2)->setChild(12,2,new QStandardItem("数据范围：0-15 制动压力范围[0 Mpa，7.5Mpa]"));
+    //4 0x0C09D1D0
+    model->setItem(3,new QStandardItem("电源管理"));
+    model->item(3)->setChild(0,0,new QStandardItem("激光雷达电源"));
+    model->item(3)->setChild(0,1,new QStandardItem(""));
+    model->item(3)->setChild(0,2,new QStandardItem("0x0-关闭，0x1-打开"));
 
-//    //12
-//    model->setItem(11,new QStandardItem("车辆电源状态"));
+    model->item(3)->setChild(1,0,new QStandardItem("RTK GPS电源"));
+    model->item(3)->setChild(1,1,new QStandardItem(""));
+    model->item(3)->setChild(1,2,new QStandardItem("0x0-关闭，0x1-打开"));
 
-//    //13
-//    model->setItem(12,new QStandardItem("电池状态 1#"));
+    model->item(3)->setChild(2,0,new QStandardItem("超声波雷达电源"));
+    model->item(3)->setChild(2,1,new QStandardItem(""));
+    model->item(3)->setChild(2,2,new QStandardItem("0x0-关闭，0x1-打开"));
 
-//    //14
-//    model->setItem(13,new QStandardItem("电池状态 2#"));
+    model->item(3)->setChild(3,0,new QStandardItem("摄像头电源"));
+    model->item(3)->setChild(3,1,new QStandardItem(""));
+    model->item(3)->setChild(3,2,new QStandardItem("0x0-关闭，0x1-打开"));
 
-//    //15
-//    model->setItem(14,new QStandardItem("超声波雷达探测效果"));
+    model->item(3)->setChild(4,0,new QStandardItem("显示器电源"));
+    model->item(3)->setChild(4,1,new QStandardItem(""));
+    model->item(3)->setChild(4,2,new QStandardItem("0x0-关闭，0x1-打开"));
 
+    model->item(3)->setChild(5,0,new QStandardItem("交换机电源"));
+    model->item(3)->setChild(5,1,new QStandardItem(""));
+    model->item(3)->setChild(5,2,new QStandardItem("0x0-关闭，0x1-打开"));
 
+    model->item(3)->setChild(6,0,new QStandardItem("预留电源1"));
+    model->item(3)->setChild(6,1,new QStandardItem(""));
+    model->item(3)->setChild(6,2,new QStandardItem("0x0-关闭，0x1-打开"));
+    //5 0x0C0AD1D0
+    model->setItem(4,new QStandardItem("灯光管理"));
+    model->item(4)->setChild(0,0,new QStandardItem("左转向灯"));
+    model->item(4)->setChild(0,1,new QStandardItem(""));
+    model->item(4)->setChild(0,2,new QStandardItem("0x0-关闭，0x1-打开"));
 
+    model->item(4)->setChild(1,0,new QStandardItem("右转向灯"));
+    model->item(4)->setChild(1,1,new QStandardItem(""));
+    model->item(4)->setChild(1,2,new QStandardItem("0x0-关闭，0x1-打开"));
 
-    model->setItem(0,new QStandardItem("重要参数"));
-    model->item(0)->setChild(0,new QStandardItem("车辆名称"));
-    model->item(0)->setChild(0,1,new QStandardItem("X牌电动接驳车"));
-    model->item(0,0)->setChild(1,0,new QStandardItem("行驶状态"));
-    model->item(0,0)->setChild(1,1,new QStandardItem(" "));
-    model->item(0,0)->setChild(2,0,new QStandardItem("实时速度"));
-    model->item(0,0)->setChild(2,1,new QStandardItem(" Km/h"));
-    model->item(0,0)->setChild(3,0,new QStandardItem("剩余电量"));
-    model->item(0,0)->setChild(3,1,new QStandardItem(" %"));
+    model->item(4)->setChild(2,0,new QStandardItem("远光灯"));
+    model->item(4)->setChild(2,1,new QStandardItem(""));
+    model->item(4)->setChild(2,2,new QStandardItem("0x0-关闭，0x1-打开"));
 
+    model->item(4)->setChild(3,0,new QStandardItem("近光灯"));
+    model->item(4)->setChild(3,1,new QStandardItem(""));
+    model->item(4)->setChild(3,2,new QStandardItem("0x0-关闭，0x1-打开"));
 
-    model->setItem(1,0,new QStandardItem("转向"));
-    model->item(1,0)->setCheckable(true);
-    model->item(1,0)->setChild(0,0,new QStandardItem("目标转角"));
-    model->item(1,0)->setChild(0,1,new QStandardItem(" deg"));
-    model->item(1,0)->setChild(1,0,new QStandardItem("实时转角"));
-    model->item(1,0)->setChild(1,1,new QStandardItem(" deg"));
+    model->item(4)->setChild(4,0,new QStandardItem("危险报警灯光"));
+    model->item(4)->setChild(4,1,new QStandardItem(""));
+    model->item(4)->setChild(4,2,new QStandardItem("0x0-关闭，0x1-打开"));
 
-    model->setItem(2,0,new QStandardItem("档位"));
-    model->item(2,0)->setCheckable(true);
-    model->item(2,0)->setChild(0,0,new QStandardItem("目标挡位"));
-    model->item(2,0)->setChild(0,1,new QStandardItem(" 挡"));
+    model->item(4)->setChild(5,0,new QStandardItem("倒车灯"));
+    model->item(4)->setChild(5,1,new QStandardItem(""));
+    model->item(4)->setChild(5,2,new QStandardItem("0x0-关闭，0x1-打开"));
 
-    model->setItem(3,0,new QStandardItem("油门"));
-    model->item(3,0)->setCheckable(true);
-    model->item(3,0)->setChild(0,0,new QStandardItem("目标油门"));
-    model->item(3,0)->setChild(0,1,new QStandardItem(" %"));
-    model->item(3,0)->setChild(1,0,new QStandardItem("实时油门"));
-    model->item(3,0)->setChild(1,1,new QStandardItem(" %"));
+    model->item(4)->setChild(6,0,new QStandardItem("刹车灯"));
+    model->item(4)->setChild(6,1,new QStandardItem(""));
+    model->item(4)->setChild(6,2,new QStandardItem("0x0-关闭，0x1-打开"));
 
+    model->item(4)->setChild(7,0,new QStandardItem("喇叭"));
+    model->item(4)->setChild(7,1,new QStandardItem(""));
+    model->item(4)->setChild(7,2,new QStandardItem("0x0-关闭，0x1-打开"));
 
+    model->item(4)->setChild(8,0,new QStandardItem("雨刮器"));
+    model->item(4)->setChild(8,1,new QStandardItem(""));
+    model->item(4)->setChild(8,2,new QStandardItem("0x0-关闭，0x1-打开"));
+    //6 0x1814D0D1
+    model->setItem(5,new QStandardItem("车辆授权回复"));
+    model->item(5)->setChild(0,0,new QStandardItem("回复命令"));
+    model->item(5)->setChild(0,1,new QStandardItem(""));
+    model->item(5)->setChild(0,2,new QStandardItem("0x0-关闭，0x1-打开"));
 
-    model->setItem(4,0,new QStandardItem("制动"));
-    model->item(4,0)->setCheckable(true);
-    model->item(4,0)->setChild(0,0,new QStandardItem("目标制动"));
-    model->item(4,0)->setChild(0,1,new QStandardItem(" bar"));
-    model->item(4,0)->setChild(1,0,new QStandardItem("实时制动"));
-    model->item(4,0)->setChild(1,1,new QStandardItem(" bar"));
+    model->item(5)->setChild(1,0,new QStandardItem("命令状态"));
+    model->item(5)->setChild(1,1,new QStandardItem(""));
+    model->item(5)->setChild(1,2,new QStandardItem("0x0-关闭，0x1-打开"));
 
-    model->setItem(5,0,new QStandardItem("驻车"));
-    model->item(5,0)->setCheckable(true);
+    model->item(5)->setChild(2,0,new QStandardItem("车辆编号-字段1"));
+    model->item(5)->setChild(2,1,new QStandardItem(""));
+    model->item(5)->setChild(2,2,new QStandardItem("车辆编号字段1"));
 
-    model->setItem(6,0,new QStandardItem("灯光"));
-    model->item(6,0)->setCheckable(true);
-    model->item(6,0)->setChild(0,0,new QStandardItem("前大灯"));
-    model->item(6,0)->setChild(0,1,new QStandardItem("关"));
-    model->item(6,0)->setChild(1,0,new QStandardItem("左转向灯"));
-    model->item(6,0)->setChild(1,1,new QStandardItem("关"));
-    model->item(6,0)->setChild(2,0,new QStandardItem("右转向灯"));
-    model->item(6,0)->setChild(2,1,new QStandardItem("关"));
-    model->item(6,0)->setChild(3,0,new QStandardItem("双闪灯"));
-    model->item(6,0)->setChild(3,1,new QStandardItem("关"));
-    model->item(6,0)->setChild(4,0,new QStandardItem("远灯"));
-    model->item(6,0)->setChild(4,1,new QStandardItem("关"));
-    model->item(6,0)->setChild(5,0,new QStandardItem("近灯"));
-    model->item(6,0)->setChild(5,1,new QStandardItem("关"));
-    model->item(6,0)->setChild(6,0,new QStandardItem("雨刷器"));
-    model->item(6,0)->setChild(6,1,new QStandardItem("关"));
+    model->item(5)->setChild(3,0,new QStandardItem("车辆编号-字段2"));
+    model->item(5)->setChild(3,1,new QStandardItem(""));
+    model->item(5)->setChild(3,2,new QStandardItem("车辆编号字段2"));
+
+    model->item(5)->setChild(4,0,new QStandardItem("车辆编号-字段3"));
+    model->item(5)->setChild(4,1,new QStandardItem(""));
+    model->item(5)->setChild(4,2,new QStandardItem("车辆编号字段3"));
+    //7 0x18F014D1
+    model->setItem(6,new QStandardItem("车辆状态 1#"));
+    model->item(6)->setChild(0,0,new QStandardItem("车辆工作模式"));
+    model->item(6)->setChild(0,1,new QStandardItem(""));
+    model->item(6)->setChild(0,2,new QStandardItem("0x00-断电模式 0x10-待机模式 0x20-工程模式 0x30-手动驾驶模式 0x40-自动驾驶模式 0x50-紧急停车模式"));
+
+    model->item(6)->setChild(1,0,new QStandardItem("转向控制模式"));
+    model->item(6)->setChild(1,1,new QStandardItem(""));
+    model->item(6)->setChild(1,2,new QStandardItem("0x0-手动控制模式 0x1-线控模式"));
+
+    model->item(6)->setChild(2,0,new QStandardItem("制动工作模式"));
+    model->item(6)->setChild(2,1,new QStandardItem(""));
+    model->item(6)->setChild(2,2,new QStandardItem("0x0-手动控制模式 0x1-线控模式"));
+
+    model->item(6)->setChild(3,0,new QStandardItem("挡位工作模式"));
+    model->item(6)->setChild(3,1,new QStandardItem(""));
+    model->item(6)->setChild(3,2,new QStandardItem("0x0-手动控制模式 0x1-线控模式"));
+
+    model->item(6)->setChild(4,0,new QStandardItem("油门工作模式"));
+    model->item(6)->setChild(4,1,new QStandardItem(""));
+    model->item(6)->setChild(4,2,new QStandardItem("0x0-手动控制模式 0x1-线控模式"));
+
+    model->item(6)->setChild(5,0,new QStandardItem("驻车工作模式"));
+    model->item(6)->setChild(5,1,new QStandardItem(""));
+    model->item(6)->setChild(5,2,new QStandardItem("0x0-手动控制模式 0x1-线控模式"));
+
+    model->item(6)->setChild(6,0,new QStandardItem("灯光工作模式"));
+    model->item(6)->setChild(6,1,new QStandardItem(""));
+    model->item(6)->setChild(6,2,new QStandardItem("0x0-手动控制模式 0x1-线控模式"));
+
+    model->item(6)->setChild(7,0,new QStandardItem("车辆故障代码"));
+    model->item(6)->setChild(7,1,new QStandardItem(""));
+    model->item(6)->setChild(7,2,new QStandardItem("详见车辆故障代码定义"));
+
+    model->item(6)->setChild(8,0,new QStandardItem("车辆授权状态"));
+    model->item(6)->setChild(8,1,new QStandardItem(""));
+    model->item(6)->setChild(8,2,new QStandardItem("0x00-未授权；0x01-已授权"));
+
+    model->item(6)->setChild(9,0,new QStandardItem("操作提示"));
+    model->item(6)->setChild(9,1,new QStandardItem(""));
+    model->item(6)->setChild(9,2,new QStandardItem("详见车辆操作提示定义"));
+
+    //8 0x18F015D1
+    model->setItem(7,new QStandardItem("车辆状态 2#"));
+    model->item(7)->setChild(0,0,new QStandardItem("档位开关状态"));
+    model->item(7)->setChild(0,1,new QStandardItem(""));
+    model->item(7)->setChild(0,2,new QStandardItem("0x0-空档；0x1-前进档；0x2-后退档"));
+
+    model->item(7)->setChild(1,0,new QStandardItem("实时挡位状态"));
+    model->item(7)->setChild(1,1,new QStandardItem(""));
+    model->item(7)->setChild(1,2,new QStandardItem("0x0-空档；0x1-前进档；0x2-后退档"));
+
+    model->item(7)->setChild(2,0,new QStandardItem("油门踏板状态"));
+    model->item(7)->setChild(2,1,new QStandardItem(" %"));
+    model->item(7)->setChild(2,2,new QStandardItem("数据范围：0-100 油门踏板有效范围[0%，100%]"));
+
+    model->item(7)->setChild(3,0,new QStandardItem("实时油门状态"));
+    model->item(7)->setChild(3,1,new QStandardItem(" %"));
+    model->item(7)->setChild(3,2,new QStandardItem("数据范围：0-100 油门有效范围[0%，100%]"));
+
+    model->item(7)->setChild(4,0,new QStandardItem("方向盘转角"));
+    model->item(7)->setChild(4,1,new QStandardItem(" °"));
+    model->item(7)->setChild(4,2,new QStandardItem("数据范围：-7100 - +7100 角度分辨率：0.1° 角度范围：[-710°，710°]"));
+
+    model->item(7)->setChild(5,0,new QStandardItem("方向盘转速"));
+    model->item(7)->setChild(5,1,new QStandardItem(" °/s"));
+    model->item(7)->setChild(5,2,new QStandardItem("数据范围：0-250 转速范围[0°/s，500°/s]"));
+
+    model->item(7)->setChild(6,0,new QStandardItem("方向盘扭矩"));
+    model->item(7)->setChild(6,1,new QStandardItem(""));
+    model->item(7)->setChild(6,2,new QStandardItem("数据范围：-127 - +127 扭矩范围：[-12.7Nm，12.7Nm] 向左转为正值，向右转为负值"));
+
+    //9 0x18F016D1
+    model->setItem(8,new QStandardItem("车辆状态 3#"));
+    model->item(8)->setChild(0,0,new QStandardItem("制动踏板状态"));
+    model->item(8)->setChild(0,1,new QStandardItem(" MPa"));
+    model->item(8)->setChild(0,2,new QStandardItem("数据范围：0-15 制动踏板压力范围[0 Mpa，7.5Mpa]"));
+
+    model->item(8)->setChild(1,0,new QStandardItem("实时制动压力"));
+    model->item(8)->setChild(1,1,new QStandardItem(" MPa"));
+    model->item(8)->setChild(1,2,new QStandardItem("数据范围：0-15 制动压力范围：[0 Mpa，7.5Mpa]"));
+
+    model->item(8)->setChild(2,0,new QStandardItem("驻车开关状态"));
+    model->item(8)->setChild(2,1,new QStandardItem(""));
+    model->item(8)->setChild(2,2,new QStandardItem("0x0-未使能 0x1-使能"));
+
+    model->item(8)->setChild(3,0,new QStandardItem("实时驻车状态"));
+    model->item(8)->setChild(3,1,new QStandardItem(""));
+    model->item(8)->setChild(3,2,new QStandardItem("0x0-未驻车 0x1-已驻车"));
+
+    model->item(8)->setChild(4,0,new QStandardItem("钥匙开关状态"));
+    model->item(8)->setChild(4,1,new QStandardItem(""));
+    model->item(8)->setChild(4,2,new QStandardItem("0x0-关闭 0x1-打开"));
+
+    model->item(8)->setChild(5,0,new QStandardItem("模式开关状态"));
+    model->item(8)->setChild(5,1,new QStandardItem(""));
+    model->item(8)->setChild(5,2,new QStandardItem("0x0-手动档位 0x1-自动档位"));
+
+    model->item(8)->setChild(6,0,new QStandardItem("启停开关状态"));
+    model->item(8)->setChild(6,1,new QStandardItem(""));
+    model->item(8)->setChild(6,2,new QStandardItem("0x0-停止 0x1-启动"));
+
+    model->item(8)->setChild(7,0,new QStandardItem("急停开关状态"));
+    model->item(8)->setChild(7,1,new QStandardItem(""));
+    model->item(8)->setChild(7,2,new QStandardItem("0x0-关闭 0x1-打开"));
+
+    model->item(8)->setChild(8,0,new QStandardItem("工控机关机请求"));
+    model->item(8)->setChild(8,1,new QStandardItem(""));
+    model->item(8)->setChild(8,2,new QStandardItem("0x0-无请求；0x1-请求关机 工控机接收到关机请求使能时，应开始进行关机，15 秒后系统开始断电"));
+
+    //10 0x18F01AD1
+    model->setItem(9,new QStandardItem("车辆里程信息"));
+    model->item(9)->setChild(0,0,new QStandardItem("车辆速度"));
+    model->item(9)->setChild(0,1,new QStandardItem(" Km/h"));
+    model->item(9)->setChild(0,2,new QStandardItem("数据范围：-5000 - +5000 范围：[-500Km/h, +500Km/h] 负值表示倒退"));
+
+    model->item(9)->setChild(1,0,new QStandardItem("小计里程"));
+    model->item(9)->setChild(1,1,new QStandardItem(" Km"));
+    model->item(9)->setChild(1,2,new QStandardItem("数据范围：0-FAFF 小计里程范围：[0km，6425.5km]"));
+
+    model->item(9)->setChild(2,0,new QStandardItem("总里程"));
+    model->item(9)->setChild(2,1,new QStandardItem(" Km"));
+    model->item(9)->setChild(2,2,new QStandardItem("数据范围：0-0xFAFFFF 总里程范围：[0km，1644953.5km]"));
+    //11 0x18F01CD1
+    model->setItem(10,new QStandardItem("车辆灯光状态"));
+    model->item(10)->setChild(0,0,new QStandardItem("左转向灯"));
+    model->item(10)->setChild(0,1,new QStandardItem(""));
+    model->item(10)->setChild(0,2,new QStandardItem("0x0-关闭；0x1-打开"));
+
+    model->item(10)->setChild(1,0,new QStandardItem("右转向灯"));
+    model->item(10)->setChild(1,1,new QStandardItem(""));
+    model->item(10)->setChild(1,2,new QStandardItem("0x0-关闭；0x1-打开"));
+
+    model->item(10)->setChild(2,0,new QStandardItem("远光灯"));
+    model->item(10)->setChild(2,1,new QStandardItem(""));
+    model->item(10)->setChild(2,2,new QStandardItem("0x0-关闭；0x1-打开"));
+
+    model->item(10)->setChild(3,0,new QStandardItem("近光灯"));
+    model->item(10)->setChild(3,1,new QStandardItem(""));
+    model->item(10)->setChild(3,2,new QStandardItem("0x0-关闭；0x1-打开"));
+
+    model->item(10)->setChild(4,0,new QStandardItem("双闪灯"));
+    model->item(10)->setChild(4,1,new QStandardItem(""));
+    model->item(10)->setChild(4,2,new QStandardItem("0x0-关闭；0x1-打开"));
+
+    model->item(10)->setChild(5,0,new QStandardItem("倒车灯"));
+    model->item(10)->setChild(5,1,new QStandardItem(""));
+    model->item(10)->setChild(5,2,new QStandardItem("0x0-关闭；0x1-打开"));
+
+    model->item(10)->setChild(6,0,new QStandardItem("刹车灯"));
+    model->item(10)->setChild(6,1,new QStandardItem(""));
+    model->item(10)->setChild(6,2,new QStandardItem("0x0-关闭；0x1-打开"));
+
+    model->item(10)->setChild(7,0,new QStandardItem("喇叭"));
+    model->item(10)->setChild(7,1,new QStandardItem(""));
+    model->item(10)->setChild(7,2,new QStandardItem("0x0-关闭；0x1-打开"));
+
+    model->item(10)->setChild(8,0,new QStandardItem("雨刮器"));
+    model->item(10)->setChild(8,1,new QStandardItem(""));
+    model->item(10)->setChild(8,2,new QStandardItem("0x0-关闭；0x1-打开"));
+
+    model->item(10)->setChild(9,0,new QStandardItem("左转向灯开关"));
+    model->item(10)->setChild(9,1,new QStandardItem(""));
+    model->item(10)->setChild(9,2,new QStandardItem("0x0-关闭；0x1-打开"));
+
+    model->item(10)->setChild(10,0,new QStandardItem("右转向灯开关"));
+    model->item(10)->setChild(10,1,new QStandardItem(""));
+    model->item(10)->setChild(10,2,new QStandardItem("0x0-关闭；0x1-打开"));
+
+    model->item(10)->setChild(11,0,new QStandardItem("右转向灯开关"));
+    model->item(10)->setChild(11,1,new QStandardItem(""));
+    model->item(10)->setChild(11,2,new QStandardItem("0x0-关闭；0x1-打开"));
+
+    model->item(10)->setChild(12,0,new QStandardItem("远光灯开关"));
+    model->item(10)->setChild(12,1,new QStandardItem(""));
+    model->item(10)->setChild(12,2,new QStandardItem("0x0-关闭；0x1-打开"));
+
+    model->item(10)->setChild(13,0,new QStandardItem("近光灯开关"));
+    model->item(10)->setChild(13,1,new QStandardItem(""));
+    model->item(10)->setChild(13,2,new QStandardItem("0x0-关闭；0x1-打开"));
+
+    model->item(10)->setChild(14,0,new QStandardItem("双闪灯开关"));
+    model->item(10)->setChild(14,1,new QStandardItem(""));
+    model->item(10)->setChild(14,2,new QStandardItem("0x0-关闭；0x1-打开"));
+
+    model->item(10)->setChild(15,0,new QStandardItem("倒车灯开关"));
+    model->item(10)->setChild(15,1,new QStandardItem(""));
+    model->item(10)->setChild(15,2,new QStandardItem("0x0-关闭；0x1-打开"));
+
+    model->item(10)->setChild(16,0,new QStandardItem("刹车灯开关"));
+    model->item(10)->setChild(16,1,new QStandardItem(""));
+    model->item(10)->setChild(16,2,new QStandardItem("0x0-关闭；0x1-打开"));
+
+    model->item(10)->setChild(17,0,new QStandardItem("喇叭开关"));
+    model->item(10)->setChild(17,1,new QStandardItem(""));
+    model->item(10)->setChild(17,2,new QStandardItem("0x0-关闭；0x1-打开"));
+
+    model->item(10)->setChild(18,0,new QStandardItem("雨刮器开关"));
+    model->item(10)->setChild(18,1,new QStandardItem(""));
+    model->item(10)->setChild(18,2,new QStandardItem("0x0-关闭；0x1-打开"));
+    //12 0x18F01ED1
+    model->setItem(11,new QStandardItem("车辆电源状态"));
+    model->item(11)->setChild(0,0,new QStandardItem("电源系统模式"));
+    model->item(11)->setChild(0,1,new QStandardItem(""));
+    model->item(11)->setChild(0,2,new QStandardItem("0x00-断电模式 0x01-待机模式 0x02-标准模式"));
+
+    model->item(11)->setChild(1,0,new QStandardItem("激光雷达电源"));
+    model->item(11)->setChild(1,1,new QStandardItem(""));
+    model->item(11)->setChild(1,2,new QStandardItem("0x0-关闭，0x1-打开"));
+
+    model->item(11)->setChild(2,0,new QStandardItem("RTK GPS 电源"));
+    model->item(11)->setChild(2,1,new QStandardItem(""));
+    model->item(11)->setChild(2,2,new QStandardItem("0x0-关闭，0x1-打开"));
+
+    model->item(11)->setChild(3,0,new QStandardItem("超声波雷达电源"));
+    model->item(11)->setChild(3,1,new QStandardItem(""));
+    model->item(11)->setChild(3,2,new QStandardItem("0x0-关闭，0x1-打开"));
+
+    model->item(11)->setChild(4,0,new QStandardItem("摄像头电源"));
+    model->item(11)->setChild(4,1,new QStandardItem(""));
+    model->item(11)->setChild(4,2,new QStandardItem("0x0-关闭，0x1-打开"));
+
+    model->item(11)->setChild(5,0,new QStandardItem("显示器电源"));
+    model->item(11)->setChild(5,1,new QStandardItem(""));
+    model->item(11)->setChild(5,2,new QStandardItem("0x0-关闭，0x1-打开"));
+
+    model->item(11)->setChild(6,0,new QStandardItem("交换机电源"));
+    model->item(11)->setChild(6,1,new QStandardItem(""));
+    model->item(11)->setChild(6,2,new QStandardItem("0x0-关闭，0x1-打开"));
+
+    model->item(11)->setChild(7,0,new QStandardItem("工控机电源"));
+    model->item(11)->setChild(7,1,new QStandardItem(""));
+    model->item(11)->setChild(7,2,new QStandardItem("0x0-关闭，0x1-打开"));
+
+    model->item(11)->setChild(8,0,new QStandardItem("EHB 电源"));
+    model->item(11)->setChild(8,1,new QStandardItem(""));
+    model->item(11)->setChild(8,2,new QStandardItem("0x0-关闭，0x1-打开"));
+
+    model->item(11)->setChild(9,0,new QStandardItem("SDM 电源"));
+    model->item(11)->setChild(9,1,new QStandardItem(""));
+    model->item(11)->setChild(9,2,new QStandardItem("0x0-关闭，0x1-打开"));
+
+    model->item(11)->setChild(10,0,new QStandardItem("EPB 电源"));
+    model->item(11)->setChild(10,1,new QStandardItem(""));
+    model->item(11)->setChild(10,2,new QStandardItem("0x0-关闭，0x1-打开"));
+
+    model->item(11)->setChild(11,0,new QStandardItem("LMU 电源"));
+    model->item(11)->setChild(11,1,new QStandardItem(""));
+    model->item(11)->setChild(11,2,new QStandardItem("0x0-关闭，0x1-打开"));
+
+    model->item(11)->setChild(12,0,new QStandardItem("预留电源 1"));
+    model->item(11)->setChild(12,1,new QStandardItem(""));
+    model->item(11)->setChild(12,2,new QStandardItem("0x0-关闭，0x1-打开"));
+
+    //13 0x18F020D1
+    model->setItem(12,new QStandardItem("电池状态 1#（48V 动力电池）"));
+    model->item(12)->setChild(0,0,new QStandardItem("电池状态"));
+    model->item(12)->setChild(0,1,new QStandardItem(""));
+    model->item(12)->setChild(0,2,new QStandardItem("0x00-无故障 其他值详见电池故障定义"));
+
+    model->item(12)->setChild(1,0,new QStandardItem("电池电量"));
+    model->item(12)->setChild(1,1,new QStandardItem(" %"));
+    model->item(12)->setChild(1,2,new QStandardItem("数据范围：0-100 表示范围[0%，100%]"));
+
+    model->item(12)->setChild(2,0,new QStandardItem("电池电压"));
+    model->item(12)->setChild(2,1,new QStandardItem(" V"));
+    model->item(12)->setChild(2,2,new QStandardItem("数据范围：0-10000 电压精度:0.1V "));
+
+    model->item(12)->setChild(3,0,new QStandardItem("电池电流"));
+    model->item(12)->setChild(3,1,new QStandardItem(" A"));
+    model->item(12)->setChild(3,2,new QStandardItem("0x00-无故障 其他值详见电池故障定义"));
+
+    model->item(12)->setChild(4,0,new QStandardItem("电池温度"));
+    model->item(12)->setChild(4,1,new QStandardItem(""));
+    model->item(12)->setChild(4,2,new QStandardItem("0x00-无故障 其他值详见电池故障定义"));
+
+    //14 0x18F021D1
+    model->setItem(13,new QStandardItem("电池状态 2#（12V 待机电池）"));
+    model->item(13)->setChild(0,0,new QStandardItem("电池状态"));
+    model->item(13)->setChild(0,1,new QStandardItem(""));
+    model->item(13)->setChild(0,2,new QStandardItem("0x00-无故障 其他值详见电池故障定义"));
+
+    model->item(13)->setChild(1,0,new QStandardItem("电池电量"));
+    model->item(13)->setChild(1,1,new QStandardItem(" %"));
+    model->item(13)->setChild(1,2,new QStandardItem("数据范围：0-100 表示范围[0%，100%]"));
+
+    model->item(13)->setChild(2,0,new QStandardItem("电池电压"));
+    model->item(13)->setChild(2,1,new QStandardItem(" V"));
+    model->item(13)->setChild(2,2,new QStandardItem("数据范围：0-10000 电压精度:0.1V "));
+
+    model->item(13)->setChild(3,0,new QStandardItem("电池电流"));
+    model->item(13)->setChild(3,1,new QStandardItem(" A"));
+    model->item(13)->setChild(3,2,new QStandardItem("0x00-无故障 其他值详见电池故障定义"));
+
+    model->item(13)->setChild(4,0,new QStandardItem("电池温度"));
+    model->item(13)->setChild(4,1,new QStandardItem(""));
+    model->item(13)->setChild(4,2,new QStandardItem("0x00-无故障 其他值详见电池故障定义"));
+
     //车辆授权之后 禁用的按钮都会解除 即车辆全授权，但在此之前，关于车辆控制的控件都是禁用状态
-
     ui->pushButtonRemote->setEnabled(false);
     ui->pushButtonNear->setEnabled(false);
     ui->pushButtonDF->setEnabled(false);
@@ -230,7 +545,7 @@ void Widget::init(){
     ui->pushButtonLR->setEnabled(false);
     ui->pushButtonRI->setEnabled(false);
     ui->pushButtonTZ->setEnabled(false);
-    ui->pushButtonWP->setEnabled(false);
+//    ui->pushButtonWP->setEnabled(false);
     ui->pushButtonBEN->setEnabled(false);
     ui->pushButtonYEN->setEnabled(false);
     ui->pushButtonBack->setEnabled(false);
@@ -332,6 +647,7 @@ void Widget::on_CANConnect_clicked()
         return;
     }
     //如果没连接成功，那么开始连接
+//    qDebug()<<"canconnect";
     VCI_INIT_CONFIG init_config;
     int index, mode, cannum, baud, DevType;
     /**设备选择,默认USBCAN_2E_U**/
@@ -399,10 +715,11 @@ void Widget::on_CANConnect_clicked()
     /**初始化CAN配置**/
     init_config.Mode = static_cast<uchar>(mode);
     /**打开CAN设备**/
+//    qDebug()<<"index"<<index<<"M_devtype"<<CANTH->m_devtype;
     if(VCI_OpenDevice(static_cast<DWORD>(CANTH->m_devtype),static_cast<DWORD>(index),0)!=STATUS_OK)
     {
-        logger(3,"打开设备失败!");
-        QMessageBox::warning(this,"警告",QStringLiteral("打开设备失败!"));
+        logger(3,"CAN总线与电脑连接失败，请检查CAN总线是否被其他程序占用或者CAN盒连接参数错误。");
+        QMessageBox::warning(this,"警告",QStringLiteral("CAN总线与电脑连接失败，请检查CAN总线\n是否被其他程序占用或者CAN盒连接参数错误。"));
         return;
     }
     /**设置CAN波特率**/
@@ -443,8 +760,11 @@ void Widget::on_CANStart_clicked()
 {
 
     if(m_connect == 0)
+    {
         QMessageBox::warning(this,"警告","CAN设备未连接，请先设置CAN连接参数\n连接CAN总线成功后在进行尝试");
+        logger(2,"CAN设备未连接，请先设置CAN连接参数");
         return;
+    }
     if(VCI_StartCAN(static_cast<DWORD>(CANTH->m_devtype),CANTH->m_devind,static_cast<DWORD>(CANTH->m_cannum)) == 1)
     {
         logger(1,"CAN设备启动成功！");
@@ -554,7 +874,7 @@ void Widget::dealTimer1()
     VCI_SetReference(static_cast<DWORD>(CANTH->m_devtype),CANTH->m_devind,static_cast<DWORD>(CANTH->m_cannum),4,&m_sendTimeout);//设置发送超时
     uint ret = VCI_Transmit(static_cast<DWORD>(CANTH->m_devtype),CANTH->m_devind,static_cast<DWORD>(CANTH->m_cannum),&frameinfo,1);
     if(ret==1){
-        logger(0,"CAN总线报文通信正常");
+        logger(0,"CAN总线报文通信正常。");
     }else{
         logger(0,"CAN总线报文通信错误！");
     }
@@ -585,10 +905,10 @@ void Widget::dealTimer1()
        frameinfolight.Data[i] = Data0C.UCData[i];
 
     }
-    m_sendTimeout = 1000;
+//    m_sendTimeout = 1000;
 
-    VCI_SetReference(static_cast<DWORD>(CANTH->m_devtype),CANTH->m_devind,static_cast<DWORD>(CANTH->m_cannum),4,&m_sendTimeout);//设置发送超时
-    uint ret1 = VCI_Transmit(static_cast<DWORD>(CANTH->m_devtype),CANTH->m_devind,static_cast<DWORD>(CANTH->m_cannum),&frameinfolight,1);
+//    VCI_SetReference(static_cast<DWORD>(CANTH->m_devtype),CANTH->m_devind,static_cast<DWORD>(CANTH->m_cannum),4,&m_sendTimeout);//设置发送超时
+//    uint ret1 = VCI_Transmit(static_cast<DWORD>(CANTH->m_devtype),CANTH->m_devind,static_cast<DWORD>(CANTH->m_cannum),&frameinfolight,1);
 //    if(ret1==1){
 //    }else{
 //        ui->textBrowserMessage->insertPlainText("灯光发送失败！\n");
@@ -603,6 +923,126 @@ void Widget::dealReceiveData(PVCI_CAN_OBJ objs, uint length)
     for(uint i=0;i<length;i++)
     {
         uint CAN_ID = objs[i].ID;
+
+
+        //CAN帧标识为# 1/14 0x0C00D1D0 车辆授权
+        if(CAN_ID == 0x0C00D1D0)
+        {
+            if(objs[i].RemoteFlag==0)
+            {
+                if(objs[i].DataLen>8)
+                    objs[i].DataLen=8;
+                for(int j=0;j<objs[i].DataLen;j++)
+                {
+                    Data20D1.UCData[j] = objs[i].Data[j];
+                }
+
+
+            }
+        }
+
+        //CAN帧标识为# 2/14 0x0C02D1D0 车辆配置
+        if(CAN_ID == 0x0C02D1D0)
+        {
+            if(objs[i].RemoteFlag==0)
+            {
+                if(objs[i].DataLen>8)
+                    objs[i].DataLen=8;
+                for(int j=0;j<objs[i].DataLen;j++)
+                {
+                    Data20D1.UCData[j] = objs[i].Data[j];
+                }
+
+
+            }
+        }
+
+        //CAN帧标识为# 3/14 0x0C02D1D0 车辆配置
+        if(CAN_ID == 0x0C02D1D0)
+        {
+            if(objs[i].RemoteFlag==0)
+            {
+                if(objs[i].DataLen>8)
+                    objs[i].DataLen=8;
+                for(int j=0;j<objs[i].DataLen;j++)
+                {
+                    Data20D1.UCData[j] = objs[i].Data[j];
+                }
+
+
+            }
+        }
+        //CAN帧标识为# 4/14 0x0C02D1D0 车辆配置
+        if(CAN_ID == 0x0C02D1D0)
+        {
+            if(objs[i].RemoteFlag==0)
+            {
+                if(objs[i].DataLen>8)
+                    objs[i].DataLen=8;
+                for(int j=0;j<objs[i].DataLen;j++)
+                {
+                    Data20D1.UCData[j] = objs[i].Data[j];
+                }
+
+
+            }
+        }
+        //CAN帧标识为# 5/14 0x0C02D1D0 车辆配置
+        if(CAN_ID == 0x0C02D1D0)
+        {
+            if(objs[i].RemoteFlag==0)
+            {
+                if(objs[i].DataLen>8)
+                    objs[i].DataLen=8;
+                for(int j=0;j<objs[i].DataLen;j++)
+                {
+                    Data20D1.UCData[j] = objs[i].Data[j];
+                }
+
+
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //CAN帧标识为# 6/14 0x1814D0D1 车辆授权回复
         if(CAN_ID == 0x1814D0D1)
         {
             if(objs[i].RemoteFlag==0)
@@ -613,8 +1053,18 @@ void Widget::dealReceiveData(PVCI_CAN_OBJ objs, uint length)
                 {
                     Data1814.UCData[j] = objs[i].Data[j];
                 }
+                model->item(5)->child(0,1)->setText(QString("%1").arg(Data1814.RxData.respondCMD));
+                model->item(5)->child(1,1)->setText(QString("%1").arg(Data1814.RxData.CMDState));
+                int carNum1 = Data1814.RxData.carNum1_H*256 + Data1814.RxData.carNum1_L;
+                model->item(5)->child(2,1)->setText(QString("%1").arg(carNum1));
+                int carNum2 = Data1814.RxData.carNum2_H*256 + Data1814.RxData.carNum2_L;
+                model->item(5)->child(3,1)->setText(QString("%1").arg(carNum2));
+                int carNum3 = Data1814.RxData.carNum3_H*256 + Data1814.RxData.carNum3_L;
+                model->item(5)->child(4,1)->setText(QString("%1").arg(carNum3));
+
             }
         }
+        //CAN帧标识为# 7/14 0x18F014D1 车辆状态#1
         if(CAN_ID == 0x18F014D1)
         {
             if(objs[i].RemoteFlag==0)
@@ -628,22 +1078,22 @@ void Widget::dealReceiveData(PVCI_CAN_OBJ objs, uint length)
                 //行驶状态解析
                 if(Data18F0.RxData.runModeState == 0x00)
                 {
-                    model->item(0,0)->child(1,1)->setText("断电模式");
+                    model->item(0)->child(0,1)->setText("断电模式");
                 }else if(Data18F0.RxData.runModeState == 0x10)
                 {
-                    model->item(0,0)->child(1,1)->setText("待机模式");
+                    model->item(0)->child(0,1)->setText("待机模式");
                 }else if(Data18F0.RxData.runModeState == 0x20)
                 {
-                    model->item(0,0)->child(1,1)->setText("工程模式");
+                    model->item(0)->child(0,1)->setText("工程模式");
                 }else if(Data18F0.RxData.runModeState == 0x30)
                 {
-                    model->item(0,0)->child(1,1)->setText("手动驾驶模式");
+                    model->item(0)->child(0,1)->setText("手动驾驶模式");
                 }else if(Data18F0.RxData.runModeState == 0x40)
                 {
-                    model->item(0,0)->child(1,1)->setText("自动驾驶模式");
+                    model->item(0)->child(0,1)->setText("自动驾驶模式");
                 }else if(Data18F0.RxData.runModeState == 0x50)
                 {
-                    model->item(0,0)->child(1,1)->setText("紧急停车模式");
+                    model->item(0)->child(0,1)->setText("紧急停车模式");
                 }
                 //工作模式解析 使车辆实时信息和treeview一致
                 if(Data18F0.RxData.steerState == 1)
@@ -730,6 +1180,7 @@ void Widget::dealReceiveData(PVCI_CAN_OBJ objs, uint length)
                 }
             }
         }
+        //CAN帧标识为# 8/14 0x18F015D1 车辆状态#2
         if(CAN_ID == 0x18F015D1)
         {
             if(objs[i].RemoteFlag==0)
@@ -740,23 +1191,22 @@ void Widget::dealReceiveData(PVCI_CAN_OBJ objs, uint length)
                 {
                     Data15D1.UCData[j] = objs[i].Data[j];
                 }
+
                 //实际挡位
                 if(Data15D1.RxData.realGearState == 0)
                 {
                     ui->labelGear->setText("车辆挡位：N");
-                    model->item(2,0)->child(0,1)->setText("N 档");
+                    model->item(7)->child(1,1)->setText("N 档");
                 }else if(Data15D1.RxData.realGearState == 1)
                 {
                     ui->labelGear->setText("车辆挡位：D");
-                    model->item(2,0)->child(0,1)->setText("D 档");
+                    model->item(7)->child(1,1)->setText("D 档");
                 }else if(Data15D1.RxData.realGearState == 2)
                 {
                     ui->labelGear->setText("车辆挡位：R");
-                    model->item(2,0)->child(0,1)->setText("R 档");
-                }else{
-                    ui->labelGear->setText("车辆挡位：P");
-                    model->item(2,0)->child(0,1)->setText("P 档");
+                    model->item(7)->child(1,1)->setText("R 档");
                 }
+
 
                 int realAngle;
                 realAngle = (Data15D1.RxData.RealSteerAngle_H*256+Data15D1.RxData.RealSteerAngle_L)/10;
@@ -766,13 +1216,14 @@ void Widget::dealReceiveData(PVCI_CAN_OBJ objs, uint length)
                 }
                 //实际角度 实时转角：0 deg
                 ui->labelRTS->setText("实时转角："+QString("%1").arg(realAngle)+" deg");
-                model->item(1,0)->child(1,1)->setText(QString("%1").arg(realAngle) + " deg");
+                model->item(7)->child(4,1)->setText(QString("%1").arg(realAngle) + " °");
                 //实际油门 实时油门：0 %
                 ui->labelRYS->setText("实时油门："+QString("%1").arg(Data15D1.RxData.realGasState)+" %");
-                model->item(3,0)->child(1,1)->setText(QString("%1").arg(Data15D1.RxData.realGasState) + " %");
+                model->item(7)->child(3,1)->setText(QString("%1").arg(Data15D1.RxData.realGasState) + " %");
             }
         }
-        //实际制动
+
+        //CAN帧标识为# 9/14 0x18F016D1 车辆状态#3
         if(CAN_ID == 0x18F016D1)
         {
             if(objs[i].RemoteFlag==0)
@@ -785,27 +1236,10 @@ void Widget::dealReceiveData(PVCI_CAN_OBJ objs, uint length)
                 }
                 //实际制动 实时制动：0 bar
                 ui->labelRBS->setText("实时制动："+QString("%1").arg(Data16D1.RxData.realBrakeState) + " bar");
-                model->item(4,0)->child(1,1)->setText(QString("%1").arg(Data16D1.RxData.realBrakeState) + " bar");
+                model->item(8)->child(1,1)->setText(QString("%1").arg(Data16D1.RxData.realBrakeState) + " Mpa");
             }
         }
-          //剩余电量
-        if(CAN_ID == 0x18F020D1)
-        {
-            if(objs[i].RemoteFlag==0)
-            {
-                if(objs[i].DataLen>8)
-                    objs[i].DataLen=8;
-                for(int j=0;j<objs[i].DataLen;j++)
-                {
-                    Data20D1.UCData[j] = objs[i].Data[j];
-                }
-                //剩余电量 电池电量：100 %
-                ui->labelBTS->setText("电池电量：" + QString("%1").arg(Data20D1.RxData.batteryValue)+" %");
-                model->item(0,0)->child(3,1)->setText(QString("%1").arg(Data20D1.RxData.batteryValue) + " %");
-
-            }
-        }
-        //车辆实时速度
+        //CAN帧标识为# 10/14 0x18F01AD1 车辆里程信息
         if(CAN_ID == 0x18F01AD1)
         {
             if(objs[i].RemoteFlag==0)
@@ -827,8 +1261,55 @@ void Widget::dealReceiveData(PVCI_CAN_OBJ objs, uint length)
                 model->item(0,0)->child(2,1)->setText(QString("%1").arg(carSpeed) + " Km/h");
             }
         }
+        //CAN帧标识为# 11/14 0x0C02D1D0 车辆配置
+        if(CAN_ID == 0x0C02D1D0)
+        {
+            if(objs[i].RemoteFlag==0)
+            {
+                if(objs[i].DataLen>8)
+                    objs[i].DataLen=8;
+                for(int j=0;j<objs[i].DataLen;j++)
+                {
+                    Data20D1.UCData[j] = objs[i].Data[j];
+                }
 
 
+            }
+        }
+
+        //CAN帧标识为# 12/14 0x0C02D1D0 车辆配置
+        if(CAN_ID == 0x0C02D1D0)
+        {
+            if(objs[i].RemoteFlag==0)
+            {
+                if(objs[i].DataLen>8)
+                    objs[i].DataLen=8;
+                for(int j=0;j<objs[i].DataLen;j++)
+                {
+                    Data20D1.UCData[j] = objs[i].Data[j];
+                }
+
+
+            }
+        }
+
+        //CAN帧标识为# 13/14 0x18F020D1 电池状态 1#（48V 动力电池）
+        if(CAN_ID == 0x18F020D1)
+        {
+            if(objs[i].RemoteFlag==0)
+            {
+                if(objs[i].DataLen>8)
+                    objs[i].DataLen=8;
+                for(int j=0;j<objs[i].DataLen;j++)
+                {
+                    Data20D1.UCData[j] = objs[i].Data[j];
+                }
+                //剩余电量 电池电量：100 %
+                ui->labelBTS->setText("电池电量：" + QString("%1").arg(Data20D1.RxData.batteryValue)+" %");
+                model->item(0,0)->child(3,1)->setText(QString("%1").arg(Data20D1.RxData.batteryValue) + " %");
+
+            }
+        }
     }
 }
 
@@ -837,6 +1318,7 @@ void Widget::on_pushButtonCarLicense_clicked()
 {
     if(m_connect == 0)
         QMessageBox::warning(this,"警告","CAN设备未获得车辆授权，请设置正确的CAN连接参数\n或检查车辆状态后进行尝试");
+        logger(2,"CAN设备未获得车辆授权");
         return;
      VCI_CAN_OBJ frameinfo;
      frameinfo.ID = 0x0C00D1D0;
@@ -1146,11 +1628,18 @@ void Widget::on_pushButtonLL_clicked()
     {
         logger(0,"左转灯打开");
         ui->label_left->setStyleSheet("border-image: url(:/icons/resources/icons/left_on.png);");
+        ui->labelTurn->setStyleSheet("border-image: url(:/icons/resources/icons/turn_on.png);");
+        model->item(6,0)->setChild(1,1,new QStandardItem("开"));
         m_turnlightleft = 1;
+
     }else{
         logger(0,"左转灯关闭");
         ui->label_left->setStyleSheet("border-image: url(:/icons/resources/icons/left_off.png);");
+        model->item(6,0)->setChild(1,1,new QStandardItem("关"));
         m_turnlightleft = 0;
+        if(m_turnlightright!=1){
+            ui->labelTurn->setStyleSheet("border-image: url(:/icons/resources/icons/turn_off.png);");
+        }
     }
 }
 //右转向灯监听
@@ -1160,11 +1649,17 @@ void Widget::on_pushButtonLR_clicked()
     {
         logger(0,"右转灯打开");
         ui->label_right->setStyleSheet("border-image: url(:/icons/resources/icons/right_on.png);");
+        ui->labelTurn->setStyleSheet("border-image: url(:/icons/resources/icons/turn_on.png);");
+        model->item(6,0)->setChild(2,1,new QStandardItem("开"));
         m_turnlightright = 1;
     }else{
         logger(0,"右转灯关闭");
         ui->label_right->setStyleSheet("border-image: url(:/icons/resources/icons/right_off.png);");
+        model->item(6,0)->setChild(2,1,new QStandardItem("关"));
         m_turnlightright = 0;
+        if(m_turnlightleft!=1){
+            ui->labelTurn->setStyleSheet("border-image: url(:/icons/resources/icons/turn_off.png);");
+        }
     }
 }
 //双闪灯控制
@@ -1199,7 +1694,7 @@ void Widget::on_pushButtonNear_clicked()
     }else{
         logger(0,"近光灯关闭");
         ui->labelJindeng->setStyleSheet("border-image: url(:/icons/resources/icons/jindeng_off.png);");
-        model->item(6,0)->setChild(4,1,new QStandardItem("开"));
+        model->item(6,0)->setChild(4,1,new QStandardItem("关"));
         m_nearheadlight = 0;
     }
 }
@@ -1232,32 +1727,10 @@ void Widget::on_checkBoxDEBUG_stateChanged(int arg1)
     {
         DEBUG = true;
         logger(0,"DEBUG模式已开启！");
-        ui->labelKey->setStyleSheet("border-image: url(:/icons/resources/icons/key_on.png);");
-                ui->labelPark->setStyleSheet("border-image: url(:/icons/resources/icons/park_on.png);");
-//        ui->checkBoxBEN->setChecked(true);
-//        ui->checkBoxLEN->setChecked(true);
-//        ui->checkBoxGEN->setChecked(true);
-//        ui->checkBoxYEN->setChecked(true);
-//        ui->checkBoxPEN->setChecked(true);
-//        ui->checkBoxTEN->setChecked(true);
-//        ui->CANState->setChecked(true);
-//        ui->POWERState->setChecked(true);
-//        ui->CARState->setChecked(true);
     }else if(arg1 == Qt::Unchecked)
     {
         logger(0,"DEBUG模式已关闭！");
         DEBUG = false;
-        ui->labelKey->setStyleSheet("border-image: url(:/icons/resources/icons/key_off.png);");
-                ui->labelPark->setStyleSheet("border-image: url(:/icons/resources/icons/park_off.png);");
-//        ui->checkBoxBEN->setChecked(false);
-//        ui->checkBoxLEN->setChecked(false);
-//        ui->checkBoxGEN->setChecked(false);
-//        ui->checkBoxYEN->setChecked(false);
-//        ui->checkBoxPEN->setChecked(false);
-//        ui->checkBoxTEN->setChecked(false);
-//        ui->CANState->setChecked(false);
-//        ui->POWERState->setChecked(false);
-//        ui->CARState->setChecked(false);
     }
 }
 
